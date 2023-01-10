@@ -54,10 +54,23 @@ const app = Vue.createApp({
     methods: {
         goToPrevImage(){
             this.index--;
+            this.returnToLastImage();
         },
         
         goToNextImage(){
             this.index++;
+            this.returnToFirstImage();
+            
+        },
+
+        returnToFirstImage(){
+            if(this.index === this.images.length) this.index = 0;
+
+        },
+
+        returnToLastImage(){
+            if(this.index < 0) this.index = this.images.length - 1;
+
         }
     } 
 });
