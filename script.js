@@ -71,7 +71,11 @@ const app = Vue.createApp({
         returnToLastImage(){
             if(this.index < 0) this.index = this.images.length - 1;
 
-        }, 
+        },
+
+        setToClickedImage(i){
+            this.index = i;
+        }
 
     } 
 });

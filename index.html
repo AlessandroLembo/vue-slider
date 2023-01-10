@@ -35,7 +35,7 @@
                     </div>
                 </div> 
                 <div id="thumb">
-                    <img v-for="(pic, i) in images" :src="pic.image" :alt="pic.title" :class=" {'selected' : i === index } ">
+                    <img v-for="(pic, i) in images" :src="pic.image" :alt="pic.title" :class=" {'selected' : i === index } "  @click="setToClickedImage(i)">
                 </div>
             </div>
             <button id="next-image">
