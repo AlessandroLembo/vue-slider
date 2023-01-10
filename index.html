@@ -35,7 +35,7 @@
                       </div>
                 </div> 
                 <div id="thumb">
-                    <img src="img/01.webp" alt="webp" class="">
+                    <img v-for="(pic, i) in images" :src="pic.image" :alt="pic.title" :class=" {'selected' : i === index } ">
                 </div>
             </div>
             <!-- <button id="next-image">
