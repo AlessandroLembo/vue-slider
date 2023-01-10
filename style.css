@@ -19,11 +19,11 @@
 } 
     
 #carousel .gallery{
-    display: none;
+    /* display: none; */
 } 
 
 #carousel .gallery.active{
-    display: block;
+    /* display: block; */
 }
 
 #thumb{

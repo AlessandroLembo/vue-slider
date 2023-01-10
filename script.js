@@ -49,7 +49,17 @@ const app = Vue.createApp({
                 }
               ]
         }
-    }
+    },
+
+    methods: {
+        goToPrevImage(){
+            this.index--;
+        },
+        
+        goToNextImage(){
+            this.index++;
+        }
+    } 
 });
 
 app.mount('#root');
