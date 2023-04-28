@@ -20,33 +20,36 @@
 </head>
 <body>
     <div id="root">
-        <div class="container">
-            <button id="prev-image">
-                <i class="fa-solid fa-circle-up" @click="goToPrevImage"></i>
-            </button>
-            <div class="container-images">
-                <div id="carousel">
-                    <div v-for="(pic, i) in images" class="gallery" v-show="i === index">
-                        <img :src="pic.image" :alt="pic.title"> 
-                        <div class="title">
-                          <h1> {{pic.title}} </h1>
-                          <p> {{pic.text}} </p> 
-                        </div>   
+        <div class="main-container">
+
+            <div class="container">
+                <button id="prev-image">
+                    <i class="fa-solid fa-circle-up" @click="goToPrevImage"></i>
+                </button>
+                <div class="container-images">
+                    <div id="carousel">
+                        <div v-for="(pic, i) in images" class="gallery" v-show="i === index">
+                            <img :src="pic.image" :alt="pic.title"> 
+                            <div class="title">
+                              <h1> {{pic.title}} </h1>
+                              <p> {{pic.text}} </p> 
+                            </div>   
+                        </div>
+                    </div> 
+                    <div id="thumb">
+                        <img v-for="(pic, i) in images" :src="pic.image" :alt="pic.title" :class=" {'selected' : i === index } "  @click="setToClickedImage(i)">
                     </div>
-                </div> 
-                <div id="thumb">
-                    <img v-for="(pic, i) in images" :src="pic.image" :alt="pic.title" :class=" {'selected' : i === index } "  @click="setToClickedImage(i)">
                 </div>
+                <button id="next-image">
+                    <i class="fa-solid fa-circle-down" @click="goToNextImage"></i>
+                </button>
+                <div class="autoplay">
+                    <button id="btn-autoplay">Stop</button>  
+                    <button id="btn-reverse-autoplay">
+                        <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                    </button>  
+                </div> 
             </div>
-            <button id="next-image">
-                <i class="fa-solid fa-circle-down" @click="goToNextImage"></i>
-            </button>
-            <!-- <div class="autoplay">
-                <button id="btn-autoplay">Stop</button>  
-                <button id="btn-reverse-autoplay">
-                    <i class="fa-solid fa-arrow-right-arrow-left"></i>
-                </button>  
-            </div>  -->
         </div>
 
     </div>

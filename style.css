@@ -5,6 +5,17 @@
 }
 
 /* Generics */
+body{
+    background-color: whitesmoke;
+}
+
+.main-container{
+    max-width: 1550px;
+    margin: 2rem auto;
+    background-color: lightgray;
+    padding: 2rem;
+ }
+ 
 .container{
     display: flex;
     flex-direction: column;
