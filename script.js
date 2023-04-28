@@ -56,6 +56,22 @@ const app = Vue.createApp({
     },
 
     methods: {
+        goToPrev(){
+            this.textButton = 'RESUME';
+            this.index--;
+            this.returnToLastImage();
+            this.isPlaying = false;
+            clearInterval(this.autoplay);
+        },
+        
+        goToNext(){
+            this.textButton = 'RESUME';   
+            this.index++;
+            this.returnToFirstImage(); 
+            this.isPlaying = false;
+            clearInterval(this.autoplay);
+        },
+
         goToPrevImage(){
             this.index--;
             this.returnToLastImage();
@@ -63,8 +79,7 @@ const app = Vue.createApp({
         
         goToNextImage(){
             this.index++;
-            this.returnToFirstImage();
-            
+            this.returnToFirstImage();    
         },
 
         returnToFirstImage(){
@@ -107,6 +122,7 @@ const app = Vue.createApp({
         // method for button to start/resume autoplay
         stopAndGo(){
           this.isPlaying = !this.isPlaying;
+         
           if (!this.isPlaying){
             clearInterval(this.autoplay);
             this.textButton = 'RESUME';
