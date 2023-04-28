@@ -52,6 +52,10 @@ img{
     height: 100%;
 }
 
+.gallery img:hover{
+    cursor: grab;
+}
+
 #thumb img{
     height: 20%;
 }

@@ -28,7 +28,7 @@
                 </button>
                 <div class="container-images">
                     <div id="carousel">
-                        <div v-for="(pic, i) in images" class="gallery" v-show="i === index">
+                        <div v-for="(pic, i) in images" class="gallery" v-show="i === index" @mouseenter="stopAutoplay" @mouseleave="startAutoplay">
                             <img :src="pic.image" :alt="pic.title"> 
                             <div class="title">
                               <h1> {{pic.title}} </h1>

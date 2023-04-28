@@ -25,6 +25,7 @@ const app = Vue.createApp({
     data(){
         return{
             index : 0,
+            autoplay: null,
             images: [
                 {
                   image: 'img/01.webp',
@@ -75,12 +76,20 @@ const app = Vue.createApp({
 
         setToClickedImage(i){
             this.index = i;
+        },
+
+        startAutoplay(){
+          this.autoplay = setInterval(this.goToNextImage, 3000);
+        },
+
+        stopAutoplay(){
+          clearInterval(this.autoplay);
         }
 
     },
     
     mounted(){
-      setInterval(this.goToNextImage, 3000);
+      this.startAutoplay();
     }
 });
 
