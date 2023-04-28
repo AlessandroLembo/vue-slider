@@ -77,7 +77,11 @@ const app = Vue.createApp({
             this.index = i;
         }
 
-    } 
+    },
+    
+    mounted(){
+      setInterval(this.goToNextImage, 3000);
+    }
 });
 
 app.mount('#root');
