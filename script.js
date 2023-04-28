@@ -93,11 +93,9 @@ const app = Vue.createApp({
         // method to change direction of autoplay
         changeDirection(){
           this.stopAutoplay();
-          if (this.direction === false){
-            this.direction = true;
-          } else {
-            this.direction = false;
-          }
+        
+          this.direction === false ? this.direction = true : this.direction = false;
+        
           if (this.direction === false){
            this.autoplay = setInterval(this.goToPrevImage, 2000);
          } else {
