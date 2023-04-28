@@ -26,6 +26,7 @@ const app = Vue.createApp({
         return{
             index : 0,
             autoplay: null,
+            direction: null,
             images: [
                 {
                   image: 'img/01.webp',
@@ -79,12 +80,29 @@ const app = Vue.createApp({
         },
 
         startAutoplay(){
-          this.autoplay = setInterval(this.goToNextImage, 3000);
+          this.direction = true;
+          this.autoplay = setInterval(this.goToNextImage, 1000);
         },
-
+        
         stopAutoplay(){
           clearInterval(this.autoplay);
+        },
+        
+        changeDirection(){
+          this.stopAutoplay();
+          if (this.direction === false){
+            this.direction = true;
+          } else {
+            this.direction = false;
+          }
+          if (this.direction === false){
+           this.autoplay = setInterval(this.goToPrevImage, 1000);
+         } else {
+           this.autoplay = setInterval(this.goToNextImage, 1000);
+          
+         }
         }
+
 
     },
     
