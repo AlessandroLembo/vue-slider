@@ -27,6 +27,8 @@ const app = Vue.createApp({
             index : 0,
             autoplay: null,
             direction: null,
+            isPlaying: true,
+            textButton: 'Stop',
             images: [
                 {
                   image: 'img/01.webp',
@@ -88,6 +90,7 @@ const app = Vue.createApp({
           clearInterval(this.autoplay);
         },
         
+        // method to change direction of autoplay
         changeDirection(){
           this.stopAutoplay();
           if (this.direction === false){
@@ -101,6 +104,18 @@ const app = Vue.createApp({
            this.autoplay = setInterval(this.goToNextImage, 1000);
           
          }
+        },
+
+        // method for button to start/resume autoplay
+        stopAndGo(){
+          this.isPlaying = !this.isPlaying;
+          if (!this.isPlaying){
+            clearInterval(this.autoplay);
+            this.textButton = 'Resume';
+          } else {
+            this.startAutoplay();
+            this.textButton = 'Stop';
+          }
         }
 
 
