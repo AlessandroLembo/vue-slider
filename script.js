@@ -28,7 +28,7 @@ const app = Vue.createApp({
             autoplay: null,
             direction: null,
             isPlaying: true,
-            textButton: 'Stop',
+            textButton: 'STOP',
             images: [
                 {
                   image: 'img/01.webp',
@@ -83,7 +83,7 @@ const app = Vue.createApp({
 
         startAutoplay(){
           this.direction = true;
-          this.autoplay = setInterval(this.goToNextImage, 1000);
+          this.autoplay = setInterval(this.goToNextImage, 2000);
         },
         
         stopAutoplay(){
@@ -99,9 +99,9 @@ const app = Vue.createApp({
             this.direction = false;
           }
           if (this.direction === false){
-           this.autoplay = setInterval(this.goToPrevImage, 1000);
+           this.autoplay = setInterval(this.goToPrevImage, 2000);
          } else {
-           this.autoplay = setInterval(this.goToNextImage, 1000);
+           this.autoplay = setInterval(this.goToNextImage, 2000);
           
          }
         },
@@ -111,10 +111,10 @@ const app = Vue.createApp({
           this.isPlaying = !this.isPlaying;
           if (!this.isPlaying){
             clearInterval(this.autoplay);
-            this.textButton = 'Resume';
+            this.textButton = 'RESUME';
           } else {
             this.startAutoplay();
-            this.textButton = 'Stop';
+            this.textButton = 'STOP';
           }
         }
 
